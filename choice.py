@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import sys
 from random import randint
 from time import sleep
 from sys import platform
@@ -29,6 +30,12 @@ answer_no = """
     NN        NNN      OOOOO  
     """
 
+def save_stat(data_to_save):
+    print("Data can not be save yet. Next release ;-)")
+    
+def read_stat():
+    print('Current statistics')
+
 def choice():
     count = [i for i in range(randint(1, 13))]
     while count:
@@ -45,6 +52,7 @@ def print_answer(arg):
         print(answer_yes)
     else:
         print(answer_no)
+    save_stat(arg)
 
 def main():
     if platform == "linux":
@@ -58,4 +66,8 @@ def main():
 
 if __name__ == "__main__":
     print("Start")
-    main()
+    if len(sys.argv)>1:
+        if "-s" in sys.argv[1:]:
+            read_stat()
+    else:
+        main()
