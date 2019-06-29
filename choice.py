@@ -39,9 +39,10 @@ def read_stat():
     cursor = connection.cursor()
     cursor.execute("SELECT * FROM statistic")
     summ = 0
-    sz = cursor.arraysize
+    sz = 0
     for i in cursor.fetchall():
         summ+=i[1]
+        sz+=1
     rez=summ/sz
     print('Current statistics: '+str(rez))
     return rez
