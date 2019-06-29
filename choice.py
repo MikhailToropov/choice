@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import sys
+import sqlite3
 from random import randint
 from time import sleep
 from sys import platform
@@ -32,9 +33,18 @@ answer_no = """
 
 def save_stat(data_to_save):
     print("Data can not be save yet. Next release ;-)")
-    
+
 def read_stat():
-    print('Current statistics')
+    connection = sqlite3.connect(sys.path[0]+'/statc.db')
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM statistic")
+    summ = 0
+    sz = cursor.arraysize
+    for i in cursor.fetchall():
+        summ+=i[1]
+    rez=summ/sz
+    print('Current statistics: '+str(rez))
+    return rez
 
 def choice():
     count = [i for i in range(randint(1, 13))]
@@ -65,7 +75,6 @@ def main():
 
 
 if __name__ == "__main__":
-    print("Start")
     if len(sys.argv)>1:
         if "-s" in sys.argv[1:]:
             read_stat()
