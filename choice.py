@@ -39,9 +39,8 @@ def save_stat(data_to_save):
     d_time = ":".join((str(t.tm_hour), str(t.tm_min), str(t.tm_sec)))
     cursor.execute("INSERT INTO statistic (result, date, time) VALUES ({0}, '{1}', '{2}')".format(data_to_save, d_date, d_time))
     connection.commit()
-    curcor.close()
+    cursor.close()
     connection.close()
-      
 
 def read_stat():
     connection = sqlite3.connect(sys.path[0]+'/statc.db')
@@ -54,7 +53,7 @@ def read_stat():
         sz+=1
     rez=summ/sz
     print('Current statistics: '+str(rez))
-    curcor.close()
+    cursor.close()
     connection.close()
     return rez
 
