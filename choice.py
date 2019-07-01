@@ -7,16 +7,16 @@ from sys import platform
 from os import system
 
 answer_yes = """
-    YY    YY   EEEEEE    SSSS
-    YY    YY   EEEEEE   SSSSSS
-     YY  YY    EE       SS
-     YY  YY    EE       SS
-       YY      EEEEE    SSSSS
-       YY      EEEEE     SSSSS
-       YY      EE           SS 
-       YY      EE           SS
-       YY      EEEEEE   SSSSSS
-       YY      EEEEEE    SSSS 
+   YY      YY   EEEEEE    SSSS
+   YY      YY   EEEEEE   SSSSSS
+    YY    YY    EE       SS
+     YY  YY     EE       SS
+       YY       EEEEE    SSSSS
+       YY       EEEEE     SSSSS
+       YY       EE           SS
+       YY       EE           SS
+       YY       EEEEEE   SSSSSS
+       YY       EEEEEE    SSSS
     """
 answer_no = """
     NNNN       NN      OOOOO
