@@ -3,6 +3,7 @@ import sys
 import sqlite3
 from random import randint
 from time import sleep, localtime
+from datetime import datetime
 from sys import platform
 from os import system
 
@@ -35,8 +36,8 @@ def save_stat(data_to_save):
     t = localtime()
     connection = sqlite3.connect(sys.path[0]+'/statc.db')
     cursor = connection.cursor()
-    d_date = ".".join((str(t.tm_mday), str(t.tm_mon), str(t.tm_year)))
-    d_time = ":".join((str(t.tm_hour), str(t.tm_min), str(t.tm_sec)))
+    d_date = "{:%d.%m.%Y}".format(datetime(t.tm_year, t.tm_mon, t.tm_mday))
+    d_time = "{:%H:%M:%S}".format(datetime(t.tm_year, t.tm_mon, t.tm_mday, t.tm_hour, t.tm_min, t.tm_sec))
     cursor.execute("INSERT INTO statistic (result, date, time) VALUES ({0}, '{1}', '{2}')".format(data_to_save, d_date, d_time))
     connection.commit()
     cursor.close()
