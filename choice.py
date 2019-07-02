@@ -52,7 +52,9 @@ def read_stat():
     for i in cursor.fetchall():
         summ+=i[1]
         sz+=1
-    rez=summ/sz
+    if sz!=0:
+        rez=summ/sz
+
     print('Current statistics: '+str(rez))
     cursor.close()
     connection.close()
