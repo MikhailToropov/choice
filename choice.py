@@ -63,7 +63,7 @@ def read_stat():
 def choice():
     count = [i for i in range(randint(1, 13))]
     while count:
-        answer = randint(0, 10)
+        answer = randint(0, 9)
         print(count.pop())
         sleep(1)
     if answer >= 5:
