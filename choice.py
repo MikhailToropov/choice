@@ -9,14 +9,14 @@ from os import system
 
 answer_yes = """
    YY      YY   EEEEEE    SSSS
-   YY      YY   EEEEEE   SSSSSS
+   YY      YY   EEEEEE   SSS SS
     YY    YY    EE       SS
      YY  YY     EE       SS
        YY       EEEEE    SSSSS
        YY       EEEEE     SSSSS
        YY       EE           SS
        YY       EE           SS
-       YY       EEEEEE   SSSSSS
+       YY       EEEEEE   SS SSS
        YY       EEEEEE    SSSS
     """
 answer_no = """
@@ -66,7 +66,7 @@ def choice():
         answer = randint(0, 9)
         print(count.pop())
         sleep(1)
-    if answer >= 5:
+    if answer > 5:
         return 1
     else:
         return 0
