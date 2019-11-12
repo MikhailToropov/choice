@@ -66,7 +66,7 @@ def choice():
         answer = randint(0, 9999)
         print(count.pop())
         sleep(1)
-    if answer%2!=0:
+    if answer%2==0:
         return 1
     else:
         return 0
